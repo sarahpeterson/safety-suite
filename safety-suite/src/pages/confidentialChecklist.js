@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import ConfidentialChecklists from '../reducers/ConfidentialChecklist.json';
+import ConfidentialChecklists from '../data/ConfidentialChecklist.json';
 import {
   BrowserRouter as Router,
   Route,

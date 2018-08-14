@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import BackgroundCheck from '../reducers/BackgroundChecks.json';
+import BackgroundCheck from '../data/BackgroundChecks.json';
 import {
   BrowserRouter as Router,
   Route,

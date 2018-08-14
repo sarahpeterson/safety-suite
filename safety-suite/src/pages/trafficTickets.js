@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import TrafficTicket from '../reducers/TrafficTicketTypes.json';
+import TrafficTicket from '../data/TrafficTicketTypes.json';
 import {
   BrowserRouter as Router,
   Route,

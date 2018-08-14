@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import HRChecklist from '../reducers/HRChecklist.json';
+import HRChecklist from '../data/HRChecklist.json';
 import {
   BrowserRouter as Router,
   Route,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import HRChecklist from '../reducers/HRChecklist.json';
+import HRChecklist from '../data/HRChecklist.json';
 import {
   BrowserRouter as Router,
   Route,
@@ -9,22 +9,27 @@ import {
 } from 'react-router-dom'
 import FormItem from '../components/formItem';
 import Header from '../components/header';
-import Footer from '../components/footer';
-import { hrChecklist } from '../actions/hrActions';
 
 class Home extends Component {
+  renderChecklist() {
+    return HRChecklist.map((item, i) => {
+      return(
+        <FormItem
+          fileType={item.fields.fileType}
+        />
+      )
+    })
+  }
   render() {
     return (
       <div className="site">
         <Header />
-          <div className="site-main">
-            <p>Keep your company and your employees safe with Safety Suite.</p>
-            <a href="/hrforms">Important documents for your employees to complete</a>
-            <a href="/backgroundchecks">Understand who you are hiring with the right background checks</a>
-            <a href="/traffictickets">Understand current employees performance</a>
+        <div className="site-main">
+          
         </div>
       </div>
     );
   }
 }
+
 export default Home;
