@@ -1,6 +1,3 @@
-// export const viewingHR = (id) => {
-//   return {
-//     type: 'view_hr',
-//     payload: id
-//   };
-// };
+// export const hrChecklist = () => {
+//   return { type: 'hr_checklist' };
+// }

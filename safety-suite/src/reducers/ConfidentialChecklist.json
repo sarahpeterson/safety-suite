@@ -1,0 +1,98 @@
+[
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Authorization to Obtain Consumer Report"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Disclosure of Intent to Procure a Customer Report"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Criminal Investigation Consent Form Copy"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Criminal Investigation"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Workers Compensation Authorization Copy"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Workers Compensation Investigation(s)"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Medical Records Release Authorization"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Workers Compensation Policy"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Medical Treatment Notice (Pennsylvania Only)"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Confirmation of Physical Examination & Drug Test Form"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Physical Exam"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Sleep 4 your health new Hire Form"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Conditional Job Offer"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Previous Employer Drug/Alcohol testing Results"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Applicant Statement on Previous Drug & Alcohol Results"
+    }
+  },
+  {
+    "listItemTemplateAlias": "confidential_checklist",
+    "fields": {
+      "fileType": "Guide Books & Learning Checks Form"
+    }
+  }
+]

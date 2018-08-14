@@ -1,35 +1,30 @@
-import React, {
-  Component,
-  ListView
-} from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import HRChecklist from './reducers/HRChecklist.json';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom';
+import Home from './pages/home';
+import HRForms from './pages/hrForms';
+import ConfidentialChecklist from './pages/confidentialChecklist';
+import TrafficTickets from './pages/trafficTickets';
+import BackgroundChecks from './pages/backgroundChecks';
 
 class App extends Component {
-  renderChecklist() {
-    return HRChecklist.map((item, i) => {
-      return(
-        <p>
-          {item.fields.fileType}
-        </p>
-      )
-    })
-  }
   render() {
-    console.log(HRChecklist)
     return (
-      <div className="site">
-        <header>
-          <h1>Welcome to Safety Suite</h1>
-        </header>
-        <p>
-          Here you will find a list ...
-        </p>
-        <div>
-          {this.renderChecklist()}
-        </div>
-      </div>
+      <Router>
+      	<Switch>
+      		<Route exact path="/" component={Home} />
+          <Route exact path="/hrforms" component={HRForms} />
+          <Route exact path="/confidentialchecklist" component={ConfidentialChecklist} />
+          <Route exact path="/traffictickets" component={TrafficTickets} />
+          <Route exact path="/backgroundchecks" component={BackgroundChecks} />
+      	</Switch>
+      </Router>
     );
   }
 }
