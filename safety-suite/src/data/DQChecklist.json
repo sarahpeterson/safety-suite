@@ -1,0 +1,128 @@
+[
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Orientation Period Form"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Violation and Reviewer Form"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Copy of current CDL (With HazMat)"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "MVR Authorization"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Authorization to Obtain Background Reports"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "PSP Background Check Authorization Form"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "PSP Profile"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Completed Application"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Background History Questionnaire"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Employment References (for last 10 years)"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Record of Road test"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "CMV Act"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Seven Day Backlog/Hours of Service Requirements"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Hours of Service - Part 395 Driver Acknowledgement"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Policy on Drug and Alcohol Abuse"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Driver’s Job Description Form"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Driver Activity Performance Checklist "
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Written Examination"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Photograph"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "TM Evaluation"
+    }
+  },
+  {
+    "listItemTemplateAlias": "dq_checklist",
+    "fields": {
+      "fileType": "Fundamentals Training Sign Off Sheet"
+    }
+  }
+]

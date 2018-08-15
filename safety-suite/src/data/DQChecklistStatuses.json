@@ -1,0 +1,25 @@
+{
+  "name": "DQ Checklist Status",
+  "alias": "dq_checklist_status",
+  "values": [
+    {
+      "value": 0,
+      "name": "Open",
+      "display": "Open",
+      "fields": {}
+    },
+    {
+      "value": 1,
+      "name": "Exempt",
+      "display": "Exempt",
+      "fields": {}
+    },
+    {
+      "value": 2,
+      "name": "Complete",
+      "display": "Complete",
+      "fields": {}
+    }
+  ],
+  "fields": {}
+}

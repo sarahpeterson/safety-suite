@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../App.css';
-import ConfidentialChecklists from '../data/ConfidentialChecklist.json';
+import DQChecklists from '../data/DQChecklist.json';
 import DQChecklistStatuses from '../data/DQChecklistStatuses.json';
 import FormItem from '../components/formItem';
 import Header from '../components/header';
 
-class ConfidentialChecklist extends Component {
+class DQChecklist extends Component {
   renderChecklist() {
-    return ConfidentialChecklists.map((item, i) => {
+    return DQChecklists.map((item, i) => {
       return(
         <FormItem
           fileType={item.fields.fileType}
@@ -24,6 +24,7 @@ class ConfidentialChecklist extends Component {
       )
     })
   }
+
   render() {
     return (
       <div className="site">
@@ -43,4 +44,4 @@ class ConfidentialChecklist extends Component {
   }
 }
 
-export default ConfidentialChecklist;
+export default DQChecklist;

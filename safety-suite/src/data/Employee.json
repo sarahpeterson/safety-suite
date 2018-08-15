@@ -1,0 +1,899 @@
+{
+  "name": "Employee",
+  "alias": "employee",
+  "template": {
+    "category": "Subjects",
+    "groupType": "terminal",
+    "fields": [
+      {
+        "name": "employeeNumber",
+        "label": "Employee No.",
+        "type": "text",
+        "options": {
+          "required": true,
+          "unique": true
+        }
+      },
+      {
+        "name": "firstName",
+        "label": "First Name",
+        "type": "text",
+        "options": {
+          "required": true
+        }
+      },
+      {
+        "name": "lastName",
+        "label": "Last Name",
+        "type": "text",
+        "options": {
+          "required": true
+        }
+      },
+      {
+        "name": "middleName",
+        "label": "Middle Name",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "phoneNumber",
+        "label": "Phone Number",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "birthDate",
+        "label": "Birth Date",
+        "type": "dateTime",
+        "options": {
+          "type": "date"
+        }
+      },
+      {
+        "name": "gender",
+        "label": "Gender",
+        "type": "enum",
+        "options": {
+          "enumSetId": "$alias_enumset_employee_genders"
+        }
+      },
+      {
+        "name": "maritalStatus",
+        "label": "Marital Status",
+        "type": "enum",
+        "options": {
+          "enumSetId": "$alias_enumset_employee_marital_statuses"
+        }
+      },
+      {
+        "name": "numberOfDependents",
+        "label": "Number of Dependents",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "streetAddress",
+        "label": "Street Address",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "streetAddress2",
+        "label": "Street Address 2",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "city",
+        "label": "City",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "county",
+        "label": "County",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "state",
+        "label": "State",
+        "type": "enum",
+        "options": {
+          "enumSetId": "$alias_enumset_states"
+        }
+      },
+      {
+        "name": "zip",
+        "label": "Zip",
+        "type": "text",
+        "options": {}
+      },
+      {
+        "name": "socialSecurityNumber",
+        "label": "Social Security No.",
+        "type": "text",
+        "options": {
+          "protected": true
+        }
+      },
+      {
+        "name": "hireDate",
+        "label": "Hire Date",
+        "type": "dateTime",
+        "options": {
+          "type": "date"
+        }
+      },
+      {
+        "name": "initialCertification",
+        "label": "Initial Certification",
+        "type": "enum",
+        "options": {
+          "enumSetId": "$alias_enumset_employee_initial_certifications"
+        }
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "type": "enum",
+        "options": {
+          "enumSetId": "$alias_enumset_employee_statuses"
+        }
+      },
+      {
+        "name": "position",
+        "label": "Position",
+        "type": "enum",
+        "options": {
+          "enumSetId": "$alias_enumset_employee_positions"
+        }
+      },
+      {
+        "name": "fullOrPartTime",
+        "label": "Full/Part Time",
+        "type": "enum",
+        "options": {
+          "enumSetId": "$alias_enumset_employee_full_time_part_time"
+        }
+      },
+      {
+        "name": "terminationDate",
+        "label": "Termination Date",
+        "type": "dateTime",
+        "options": {
+          "type": "date"
+        }
+      },
+      {
+        "name": "terminationReason",
+        "label": "Termination Reason",
+        "type": "text",
+        "options": {}
+      }
+    ],
+    "computations": [
+      {
+        "name": "positionLabel",
+        "label": "Position",
+        "type": "computed",
+        "options": {
+          "computationType": "update",
+          "operation": "concat",
+          "arguments": [
+            {
+              "type": "data",
+              "field": "position"
+            },
+            {
+              "type": "constant",
+              "value": " / "
+            },
+            {
+              "type": "data",
+              "field": "fullOrPartTime"
+            }
+          ]
+        }
+      },
+      {
+        "name": "employmentDates",
+        "label": "Employment Dates",
+        "type": "computed",
+        "options": {
+          "computationType": "update",
+          "operation": "concat",
+          "arguments": [
+            {
+              "type": "data",
+              "field": "hireDate"
+            },
+            {
+              "type": "constant",
+              "value": " - "
+            },
+            {
+              "type": "computed",
+              "operation": "conditional",
+              "condition": "hasValue",
+              "conditionArguments": [
+                {
+                  "type": "data",
+                  "field": "terminationDate"
+                }
+              ],
+              "ifTrue": {
+                "type": "computed",
+                "operation": "conditional",
+                "condition": ">",
+                "conditionArguments": [
+                  {
+                    "type": "data",
+                    "field": "terminationDate"
+                  },
+                  {
+                    "type": "variable",
+                    "name": "now"
+                  }
+                ],
+                "ifTrue": {
+                  "type": "constant",
+                  "value": "Current"
+                },
+                "ifFalse": {
+                  "type": "data",
+                  "field": "terminationDate"
+                }
+              },
+              "ifFalse": {
+                "type": "constant",
+                "value": "Current"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "serviceYears",
+        "label": "Service Years",
+        "type": "computed",
+        "options": {
+          "computationType": "update",
+          "operation": "conditional",
+          "condition": "hasValue",
+          "conditionArguments": [
+            {
+              "type": "data",
+              "field": "terminationDate"
+            }
+          ],
+          "ifTrue": {
+            "type": "computed",
+            "operation": "conditional",
+            "condition": ">",
+            "conditionArguments": [
+              {
+                "type": "data",
+                "field": "terminationDate"
+              },
+              {
+                "type": "variable",
+                "name": "now"
+              }
+            ],
+            "ifTrue": {
+              "type": "computed",
+              "operation": "dateInterval",
+              "arguments": [
+                {
+                  "type": "data",
+                  "field": "hireDate"
+                },
+                {
+                  "type": "variable",
+                  "name": "now"
+                }
+              ]
+            },
+            "ifFalse": {
+              "type": "computed",
+              "operation": "dateInterval",
+              "arguments": [
+                {
+                  "type": "data",
+                  "field": "hireDate"
+                },
+                {
+                  "type": "data",
+                  "field": "terminationDate"
+                }
+              ]
+            }
+          },
+          "ifFalse": {
+            "type": "computed",
+            "operation": "dateInterval",
+            "arguments": [
+              {
+                "type": "data",
+                "field": "hireDate"
+              },
+              {
+                "type": "variable",
+                "name": "now"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "fullName",
+        "label": "Name",
+        "type": "computed",
+        "options": {
+          "computationType": "update",
+          "operation": "concat",
+          "arguments": [
+            {
+              "type": "data",
+              "field": "firstName"
+            },
+            {
+              "type": "constant",
+              "value": " "
+            },
+            {
+              "type": "data",
+              "field": "lastName"
+            }
+          ]
+        }
+      },
+      {
+        "name": "label",
+        "label": "Label",
+        "type": "computed",
+        "options": {
+          "computationType": "update",
+          "operation": "concat",
+          "arguments": [
+            {
+              "type": "data",
+              "field": "firstName"
+            },
+            {
+              "type": "constant",
+              "value": " "
+            },
+            {
+              "type": "data",
+              "field": "lastName"
+            },
+            {
+              "type": "constant",
+              "value": " ("
+            },
+            {
+              "type": "data",
+              "field": "employeeNumber"
+            },
+            {
+              "type": "constant",
+              "value": ")"
+            }
+          ]
+        }
+      }
+    ],
+    "relations": [
+      {
+        "name": "supervisor",
+        "label": "Supervisor Name",
+        "type": "singleModel",
+        "options": {
+          "templatesId": [
+            "$alias_template_employee"
+          ],
+          "relatedTo": "supervisedEmployees",
+          "parent": false
+        }
+      },
+      {
+        "name": "otherSupervisor",
+        "label": "Other Supervisor (If Needed)",
+        "type": "singleModel",
+        "options": {
+          "templatesId": [
+            "$alias_template_employee"
+          ],
+          "relatedTo": "supervisedEmployees",
+          "parent": false
+        }
+      },
+      {
+        "name": "correctiveActions",
+        "label": "Corrective Actions",
+        "type": "multiModel",
+        "options": {
+          "templatesId": ["$alias_template_corrective_action"],
+          "relatedTo": "primaryModel",
+          "parent": true
+        }
+      },
+      {
+        "name": "documentsWithExpirations",
+        "label": "Documents With Expirations",
+        "type": "multiModel",
+        "options": {
+          "templatesId": [
+            "$alias_template_a_cdl",
+            "$alias_template_b_cdl",
+            "$alias_template_hazmat_endorsement",
+            "$alias_template_medical_waiver",
+            "$alias_template_passport",
+            "$alias_template_tsa",
+            "$alias_template_twic",
+            "$alias_template_medical_card",
+            "$alias_template_permit_a_cdl",
+            "$alias_template_permit_b_cdl"
+          ],
+          "relatedTo": "primaryModel",
+          "parent": true
+        }
+      },
+      {
+        "name": "injuriesIllnesses",
+        "label": "Injuries/Illnesses",
+        "type": "multiModel",
+        "options": {
+          "templatesId": ["$alias_template_injury_illness"],
+          "relatedTo": "primaryModel",
+          "parent": true
+        }
+      }
+    ],
+    "listItemTemplates": [
+      {
+        "name": "dqChecklist",
+        "type": "itemsList",
+        "options": {
+          "onReport": false,
+          "listItemTemplateId": "$alias_listitemtemplate_dq_checklist"
+        }
+      },
+      {
+        "name": "confidentialChecklist",
+        "type": "itemsList",
+        "options": {
+          "onReport": false,
+          "listItemTemplateId": "$alias_listitemtemplate_confidential_checklist"
+        }
+      },
+      {
+        "name": "hrChecklist",
+        "type": "itemsList",
+        "options": {
+          "onReport": false,
+          "listItemTemplateId": "$alias_listitemtemplate_hr_checklist"
+        }
+      }
+    ],
+    "views": {
+      "create": [
+        {
+          "type": "tab",
+          "options": {
+            "title": "General HR"
+          },
+          "children": [
+            {
+              "type": "form",
+              "children": [
+                {
+                  "type": "section",
+                  "options": {
+                    "title": "Personal"
+                  },
+                  "children": [
+                    {
+                      "type": "columns",
+                      "children": [
+                        [
+                          {
+                            "type": "text",
+                            "field": "employeeNumber"
+                          },
+                          {
+                            "type": "text",
+                            "field": "firstName"
+                          },
+                          {
+                            "type": "text",
+                            "field": "middleName"
+                          },
+                          {
+                            "type": "text",
+                            "field": "lastName"
+                          },
+                          {
+                            "type": "text",
+                            "field": "phoneNumber"
+                          },
+                          {
+                            "type": "text",
+                            "field": "email"
+                          },
+                          {
+                            "type": "dateTime",
+                            "field": "birthDate"
+                          },
+                          {
+                            "type": "select",
+                            "field": "gender"
+                          },
+                          {
+                            "type": "select",
+                            "field": "maritalStatus"
+                          },
+                          {
+                            "type": "text",
+                            "field": "numberOfDependents"
+                          }
+                        ],
+                        [
+                          {
+                            "type": "text",
+                            "field": "streetAddress"
+                          },
+                          {
+                            "type": "text",
+                            "field": "streetAddress2"
+                          },
+                          {
+                            "type": "text",
+                            "field": "city"
+                          },
+                          {
+                            "type": "text",
+                            "field": "county"
+                          },
+                          {
+                            "type": "select",
+                            "field": "state"
+                          },
+                          {
+                            "type": "text",
+                            "field": "zip"
+                          },
+                          {
+                            "type": "text",
+                            "field": "socialSecurityNumber"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "options": {
+                    "title": "Company"
+                  },
+                  "children": [
+                    {
+                      "type": "columns",
+                      "children": [
+                        [
+                          {
+                            "type": "dateTime",
+                            "field": "hireDate"
+                          },
+                          {
+                            "type": "select",
+                            "field": "initialCertification"
+                          },
+                          {
+                            "type": "select",
+                            "field": "status"
+                          },
+                          {
+                            "type": "select",
+                            "field": "position"
+                          },
+                          {
+                            "type": "select",
+                            "field": "supervisor"
+                          },
+                          {
+                            "type": "select",
+                            "field": "otherSupervisor"
+                          },
+                          {
+                            "type": "select",
+                            "field": "fullOrPartTime"
+                          },
+                          {
+                            "type": "select",
+                            "field": "groupId"
+                          },
+                          {
+                            "type": "dateTime",
+                            "field": "terminationDate"
+                          },
+                          {
+                            "type": "text",
+                            "field": "terminationReason"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "edit": [
+        {
+          "type": "tab",
+          "options": {
+            "title": "General HR"
+          },
+          "children": [
+            {
+              "type": "form",
+              "children": [
+                {
+                  "type": "section",
+                  "options": {
+                    "title": "Personal"
+                  },
+                  "children": [
+                    {
+                      "type": "columns",
+                      "children": [
+                        [
+                          {
+                            "type": "static",
+                            "field": "employeeNumber"
+                          },
+                          {
+                            "type": "static",
+                            "field": "firstName"
+                          },
+                          {
+                            "type": "static",
+                            "field": "middleName"
+                          },
+                          {
+                            "type": "static",
+                            "field": "lastName"
+                          },
+                          {
+                            "type": "static",
+                            "field": "phoneNumber"
+                          },
+                          {
+                            "type": "static",
+                            "field": "email"
+                          },
+                          {
+                            "type": "static",
+                            "field": "birthDate"
+                          },
+                          {
+                            "type": "static",
+                            "field": "gender"
+                          },
+                          {
+                            "type": "static",
+                            "field": "maritalStatus"
+                          },
+                          {
+                            "type": "static",
+                            "field": "numberOfDependents"
+                          }
+                        ],
+                        [
+                          {
+                            "type": "static",
+                            "field": "streetAddress"
+                          },
+                          {
+                            "type": "static",
+                            "field": "streetAddress2"
+                          },
+                          {
+                            "type": "static",
+                            "field": "city"
+                          },
+                          {
+                            "type": "static",
+                            "field": "county"
+                          },
+                          {
+                            "type": "static",
+                            "field": "state"
+                          },
+                          {
+                            "type": "static",
+                            "field": "zip"
+                          },
+                          {
+                            "type": "static",
+                            "field": "socialSecurityNumber"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "options": {
+                    "title": "Company"
+                  },
+                  "children": [
+                    {
+                      "type": "columns",
+                      "children": [
+                        [
+                          {
+                            "type": "static",
+                            "field": "hireDate"
+                          },
+                          {
+                            "type": "select",
+                            "field": "initialCertification"
+                          },
+                          {
+                            "type": "static",
+                            "field": "status"
+                          },
+                          {
+                            "type": "static",
+                            "field": "position"
+                          },
+                          {
+                            "type": "static",
+                            "field": "supervisor"
+                          },
+                          {
+                            "type": "select",
+                            "field": "otherSupervisor"
+                          },
+                          {
+                            "type": "static",
+                            "field": "fullOrPartTime"
+                          },
+                          {
+                            "type": "static",
+                            "field": "groupId"
+                          },
+                          {
+                            "type": "static",
+                            "field": "terminationDate"
+                          },
+                          {
+                            "type": "static",
+                            "field": "terminationReason"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tab",
+          "options": {
+            "title": "DQ Files"
+          },
+          "children": [
+            {
+              "type": "section",
+              "options": {
+                "title": "DOT Documents"
+              },
+              "children": [
+                {
+                  "type": "managementTable",
+                  "field": "documentsWithExpirations",
+                  "options": {
+                    "buttonText": "Add DOT Document",
+                    "modalTitle": "DOT Document",
+                    "withDocuments": true,
+                    "columns": [
+                      {
+                        "type": "text",
+                        "field": "templateName"
+                      },
+                      {
+                        "type": "select",
+                        "field": "expirationTime"
+                      },
+                      {
+                        "type": "select",
+                        "field": "state",
+                        "options": {
+                          "label": "License State"
+                        }
+                      },
+                      {
+                        "type": "dateTime",
+                        "field": "issueDate"
+                      },
+                      {
+                        "type": "dateTime",
+                        "field": "expirationDate",
+                        "options": {
+                          "label": "Expiry Date"
+                        }
+                      },
+                      {
+                        "type": "select",
+                        "field": "endorsementsRelated",
+                        "options": {
+                          "label": "Endorsements & Attachments"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "itemsList",
+              "field": "dqChecklist"
+            },
+            {
+              "type": "itemsList",
+              "field": "confidentialChecklist"
+            },
+            {
+              "type": "itemsList",
+              "field": "hrChecklist"
+            }
+          ]
+        }
+      ],
+      "list": [
+        {
+          "type": "text",
+          "field": "employeeNumber"
+        },
+        {
+          "type": "text",
+          "field": "firstName"
+        },
+        {
+          "type": "text",
+          "field": "lastName"
+        },
+        {
+          "type": "select",
+          "field": "status"
+        },
+        {
+          "type": "select",
+          "field": "position"
+        },
+        {
+          "type": "select",
+          "field": "supervisor"
+        }
+      ]
+    }
+  }
+}

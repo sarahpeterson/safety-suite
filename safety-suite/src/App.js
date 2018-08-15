@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
-import HRChecklist from './reducers/HRChecklist.json';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch
 } from 'react-router-dom';
 import Home from './pages/home';
 import HRForms from './pages/hrForms';
 import ConfidentialChecklist from './pages/confidentialChecklist';
-import TrafficTickets from './pages/trafficTickets';
-import BackgroundChecks from './pages/backgroundChecks';
+import Employees from './pages/employees';
+import DQChecklist from './pages/dqChecklist';
 
 class App extends Component {
   render() {
@@ -21,8 +18,8 @@ class App extends Component {
       		<Route exact path="/" component={Home} />
           <Route exact path="/hrforms" component={HRForms} />
           <Route exact path="/confidentialchecklist" component={ConfidentialChecklist} />
-          <Route exact path="/traffictickets" component={TrafficTickets} />
-          <Route exact path="/backgroundchecks" component={BackgroundChecks} />
+          <Route exact path="/employees" component={Employees} />
+          <Route exact path="/dqchecklist" component={DQChecklist} />
       	</Switch>
       </Router>
     );
