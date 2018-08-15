@@ -16,10 +16,10 @@ class App extends Component {
       <Router>
       	<Switch>
       		<Route exact path="/" component={Home} />
-          <Route exact path="/hrforms" component={HRForms} />
-          <Route exact path="/confidentialchecklist" component={ConfidentialChecklist} />
           <Route exact path="/employees" component={Employees} />
+          <Route exact path="/hrforms" component={HRForms} />
           <Route exact path="/dqchecklist" component={DQChecklist} />
+          <Route exact path="/confidentialchecklist" component={ConfidentialChecklist} />
       	</Switch>
       </Router>
     );

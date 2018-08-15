@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-import HRChecklist from '../data/HRChecklist.json';
-import FormItem from '../components/formItem';
 import Header from '../components/header';
 
 class Home extends Component {

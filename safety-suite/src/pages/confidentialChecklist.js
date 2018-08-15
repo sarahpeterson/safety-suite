@@ -30,12 +30,14 @@ class ConfidentialChecklist extends Component {
         <Header />
         <div className="site-main">
           <div className="grid-item-1">
-          <h2>Important Employee Forms</h2>
+            <h2>Important Employee Forms</h2>
             {this.renderChecklist()}
           </div>
           <div className="grid-item-2">
-          <h2>Employee Form Status</h2>
+            <h2>Employee Form Statuses</h2>
             {this.renderStatuses()}
+            <br/>
+            <p><a href="/employees" className="grid-item-link"> Return to Employee Information </a></p>
           </div>
         </div>
       </div>
